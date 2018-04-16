@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date:    15:03:20 04/16/2018 
+-- Create Date:    15:11:51 04/16/2018 
 -- Design Name: 
--- Module Name:    DEC - Behavioral 
+-- Module Name:    Test_Module - Behavioral 
 -- Project Name: 
 -- Target Devices: 
 -- Tool versions: 
@@ -29,13 +29,10 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity DEC is
-    Port ( I_DEC_EN : in  STD_LOGIC;
-			  I_DEC_Opcode : out  STD_LOGIC_VECTOR (5 downto 0);
-           O_DEC_RegDst : out  STD_LOGIC);
-end DEC;
+entity Test_Module is
+end Test_Module;
 
-architecture Behavioral of DEC is
+architecture Behavioral of Test_Module is
 
 begin
 
