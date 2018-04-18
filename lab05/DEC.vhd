@@ -42,7 +42,8 @@ entity DEC is
 		O_DEC_ALUOp		: out STD_LOGIC_VECTOR (1 downto 0);
 		O_DEC_MemWrite	: out	STD_LOGIC;
 		O_DEC_ALUSrc	: out STD_LOGIC;
-		O_DEC_RegWrite	: out STD_LOGIC);
+		O_DEC_RegWrite	: out STD_LOGIC
+	);
 end DEC;
 
 architecture Behavioral of DEC is
