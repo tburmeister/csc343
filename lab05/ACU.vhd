@@ -38,34 +38,33 @@ end ACU;
 architecture Behavioral of ACU is
 
 begin
-	process(I_ACU_Funct)
-	begin
-		if I_ACU_ALUOp = x"00" then
+	process(I_ACU_ALUOp,I_ACU_Funct)
+		begin 
+		if I_ACU_ALUOp = "00" then
 		-- LW or SW
 			O_ACU_CTL <= "0010";
-		elsif I_ACU_ALUOp = x"01" then
+		elsif I_ACU_ALUOp = "01" then
 		--beq
 			O_ACU_CTL <= "0110";
-		elsif I_ACU_ALUOp = x"10" then
+		elsif I_ACU_ALUOp = "10" then
 			--R-type
-			if I_ACU_Funct = x"100000" then
+			if I_ACU_Funct = "100000" then
 				--add
 				O_ACU_CTL <= "0010";
-			elsif I_ACU_Funct = x"100010" then
+			elsif I_ACU_Funct = "100010" then
 				--subtract 
 				O_ACU_CTL <= "0110";
-			elsif I_ACU_Funct = x"100100" then
+			elsif I_ACU_Funct = "100100" then
 				--AND
 				O_ACU_CTL <= "0000";
-			elsif I_ACU_Funct = x"100101" then
+			elsif I_ACU_Funct = "100101" then
 				--OR
 				O_ACU_CTL <= "0001";
-			elsif I_ACU_Funct = x"100010" then
+			elsif I_ACU_Funct = "100010" then
 				--set on less than	
 				O_ACU_CTL <= "0111";
 			end if;
 		end if;
 	end process;
-
 end Behavioral;
 
