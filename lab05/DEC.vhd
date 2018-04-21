@@ -49,7 +49,7 @@ end DEC;
 architecture Behavioral of DEC is
 
 begin
-	process(I_DEC_EN)
+	process(I_DEC_EN, I_DEC_Opcode)
 	begin
 		if I_DEC_EN = '1' then
 			if I_DEC_Opcode = x"00" then

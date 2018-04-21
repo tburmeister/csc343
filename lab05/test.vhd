@@ -41,20 +41,19 @@ ARCHITECTURE behavior OF test IS
  
     COMPONENT Test_Module
     PORT(
-         I_EN : IN  std_logic;
-         I_Instr : IN  std_logic_vector(31 downto 0);
-         O_DEC_RegDst : OUT  std_logic;
-         O_DEC_Jump : OUT  std_logic;
-         O_DEC_Beq : OUT  std_logic;
-         O_DEC_Bne : OUT  std_logic;
-         O_DEC_MemRead : OUT  std_logic;
-         O_DEC_MemtoReg : OUT  std_logic;
-         O_DEC_ALUOp : OUT  std_logic_vector(1 downto 0);
-         O_DEC_MemWrite : OUT  std_logic;
-         O_DEC_ALUSrc : OUT  std_logic;
-         O_DEC_RegWrite : OUT  std_logic;
-         O_ALUCtl : OUT  std_logic_vector(3 downto 0)
-        );
+		I_EN			: in	STD_LOGIC;
+		I_Instr		: in	STD_LOGIC_VECTOR (31 downto 0);
+		O_RegDst 	: out STD_LOGIC;
+		O_Jump 		: out STD_LOGIC;
+		O_Beq			: out STD_LOGIC;
+		O_Bne			: out STD_LOGIC;
+		O_MemRead	: out STD_LOGIC;
+		O_MemtoReg	: out STD_LOGIC;
+		O_MemWrite	: out	STD_LOGIC;
+		O_ALUSrc		: out STD_LOGIC;
+		O_RegWrite	: out STD_LOGIC;
+		O_ALUCtl		: out STD_LOGIC_VECTOR (3 downto 0)
+    );
     END COMPONENT;
     
 
@@ -63,21 +62,16 @@ ARCHITECTURE behavior OF test IS
    signal I_Instr : std_logic_vector(31 downto 0) := (others => '0');
 
  	--Outputs
-   signal O_DEC_RegDst : std_logic;
-   signal O_DEC_Jump : std_logic;
-   signal O_DEC_Beq : std_logic;
-   signal O_DEC_Bne : std_logic;
-   signal O_DEC_MemRead : std_logic;
-   signal O_DEC_MemtoReg : std_logic;
-   signal O_DEC_ALUOp : std_logic_vector(1 downto 0);
-   signal O_DEC_MemWrite : std_logic;
-   signal O_DEC_ALUSrc : std_logic;
-   signal O_DEC_RegWrite : std_logic;
-   signal O_ALUCtl : std_logic_vector(3 downto 0);
-   -- No clocks detected in port list. Replace <clock> below with 
-   -- appropriate port name 
- 
-   constant <clock>_period : time := 10 ns;
+   signal O_RegDst 	: STD_LOGIC;
+	signal O_Jump 		: STD_LOGIC;
+	signal O_Beq		: STD_LOGIC;
+	signal O_Bne		: STD_LOGIC;
+	signal O_MemRead	: STD_LOGIC;
+	signal O_MemtoReg	: STD_LOGIC;
+	signal O_MemWrite	: STD_LOGIC;
+	signal O_ALUSrc	: STD_LOGIC;
+	signal O_RegWrite	: STD_LOGIC;
+	signal O_ALUCtl	: STD_LOGIC_VECTOR (3 downto 0);
  
 BEGIN
  
@@ -85,39 +79,39 @@ BEGIN
    uut: Test_Module PORT MAP (
           I_EN => I_EN,
           I_Instr => I_Instr,
-          O_DEC_RegDst => O_DEC_RegDst,
-          O_DEC_Jump => O_DEC_Jump,
-          O_DEC_Beq => O_DEC_Beq,
-          O_DEC_Bne => O_DEC_Bne,
-          O_DEC_MemRead => O_DEC_MemRead,
-          O_DEC_MemtoReg => O_DEC_MemtoReg,
-          O_DEC_ALUOp => O_DEC_ALUOp,
-          O_DEC_MemWrite => O_DEC_MemWrite,
-          O_DEC_ALUSrc => O_DEC_ALUSrc,
-          O_DEC_RegWrite => O_DEC_RegWrite,
+          O_RegDst => O_RegDst,
+          O_Jump => O_Jump,
+          O_Beq => O_Beq,
+          O_Bne => O_Bne,
+          O_MemRead => O_MemRead,
+          O_MemtoReg => O_MemtoReg,
+          O_MemWrite => O_MemWrite,
+          O_ALUSrc => O_ALUSrc,
+          O_RegWrite => O_RegWrite,
           O_ALUCtl => O_ALUCtl
         );
-
-   -- Clock process definitions
-   <clock>_process :process
-   begin
-		<clock> <= '0';
-		wait for <clock>_period/2;
-		<clock> <= '1';
-		wait for <clock>_period/2;
-   end process;
  
 
    -- Stimulus process
    stim_proc: process
    begin		
-      -- hold reset state for 100 ns.
-      wait for 100 ns;	
-
-      wait for <clock>_period*10;
-
-      -- insert stimulus here 
-
+      I_EN <= '0';
+		wait for 20 ns;
+		I_EN <= '1';
+		I_Instr <= x"012a5821"; -- addu $11, $9, $10
+		wait for 20 ns;
+		I_Instr <= x"24090001"; -- addiu $9, $9, 0x0001
+		wait for 20 ns;
+		I_Instr <= x"12120004"; -- beq $16, $18, 0x0004
+		wait for 20 ns;
+		I_Instr <= x"8e080000"; -- lw $8, 0x0000($16)
+		wait for 20 ns;
+		I_Instr <= x"15acfff9"; -- bne $13, $12, 0xfff9
+		wait for 20 ns;
+		I_Instr <= x"ae08fffc"; -- sw $8, 0xfffc($16)
+		wait for 20 ns;
+		I_Instr <= x"08100005"; -- j 0x00400014
+		wait for 20 ns;
       wait;
    end process;
 

@@ -47,6 +47,8 @@ entity Test_Module is
 end Test_Module;
 
 architecture Behavioral of Test_Module is
+	signal ALUOp	: STD_LOGIC_VECTOR (1 downto 0);
+	
 	COMPONENT DEC
    PORT(
 		I_DEC_EN 		: in 	STD_LOGIC;
@@ -73,27 +75,26 @@ architecture Behavioral of Test_Module is
 	END COMPONENT;
 
 begin
-	process(I_EN)
-	begin
-		if I_EN = '1' then
-			-- To/from DEC
-			I_DEC_EN 		<= '1';
-			I_DEC_Opcode 	<= I_Instr(31 downto 26);
-			O_RegDst 	<= O_DEC_RegDst;
-			O_Jump 		<= O_DEC_Jump;
-			O_Beq			<= O_DEC_Beq;
-			O_Bne			<= O_DEC_Bne;
-			O_MemRead	<= O_DEC_MemRead;
-			O_MemtoReg	<= O_DEC_MemtoReg;
-			O_MemWrite	<= O_DEC_MemWrite;
-			O_ALUSrc		<= O_DEC_ALUSrc;
-			O_RegWrite	<= O_DEC_RegWrite;
-			O_ALUCtl		<= O_DEC_ALUCtl;
-			-- To/from ACU
-			I_ACU_ALUOp <= O_DEC_ALUOp;
-			I_ACU_Funct	<= I_Instr(5 downto 0);
-			O_ALUCtl		<= O_ACU_CTL;
-		end if;
-	end process;
+	D : DEC PORT MAP(
+		I_DEC_EN => I_EN,
+		I_DEC_Opcode =>  I_Instr(31 downto 26),
+		O_DEC_RegDst => O_RegDst,
+		O_DEC_Jump => O_Jump,
+		O_DEC_Beq => O_Beq,
+		O_DEC_Bne => O_Bne,
+		O_DEC_MemRead => O_MemRead,
+		O_DEC_MemtoReg => O_MemtoReg,
+		O_DEC_MemWrite => O_MemWrite,
+		O_DEC_ALUSrc => O_ALUSrc,
+		O_DEC_RegWrite => O_RegWrite,
+		O_DEC_ALUOp => ALUOp
+	);
+	
+	A : ACU PORT MAP(
+		I_ACU_ALUOp => ALUOp,
+		I_ACU_Funct => I_Instr(5 downto 0),
+		O_ACU_CTL => O_ALUCtl
+	);
+	
 end Behavioral;
 
