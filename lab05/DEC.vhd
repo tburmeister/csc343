@@ -52,7 +52,7 @@ begin
 	process(I_DEC_EN, I_DEC_Opcode)
 	begin
 		if I_DEC_EN = '1' then
-			if I_DEC_Opcode = x"00" then
+			if I_DEC_Opcode = "000000" then
 				-- This is an R-format instruction
 				O_DEC_RegDst 	<= '1';
 				O_DEC_Jump 		<= '0';
@@ -64,7 +64,7 @@ begin
 				O_DEC_MemWrite	<= '0';
 				O_DEC_ALUSrc	<= '0';
 				O_DEC_RegWrite	<= '1';
-			elsif I_DEC_Opcode = x"08" or I_DEC_Opcode = x"09" then
+			elsif I_DEC_Opcode = "001000" or I_DEC_Opcode = "001001" then
 				-- addi/addiu
 				O_DEC_RegDst	<= '0';
 				O_DEC_Jump		<= '0';
@@ -76,11 +76,11 @@ begin
 				O_DEC_MemWrite	<= '0';
 				O_DEC_ALUSrc	<= '1';
 				O_DEC_RegWrite	<= '1';
-			elsif I_DEC_Opcode = x"04" or I_DEC_Opcode = x"05" then
+			elsif I_DEC_Opcode = "000100" or I_DEC_Opcode = "000101" then
 				-- beq/bne
 				O_DEC_RegDst	<= '0';
 				O_DEC_Jump		<= '0';
-				if I_DEC_Opcode = x"04" then
+				if I_DEC_Opcode = "000100" then
 					O_DEC_Beq 	<= '1';
 					O_DEC_Bne	<= '0';
 				else
@@ -93,7 +93,7 @@ begin
 				O_DEC_MemWrite	<= '0';
 				O_DEC_ALUSrc	<= '0';
 				O_DEC_RegWrite	<= '0';
-			elsif I_DEC_Opcode = x"23" then
+			elsif I_DEC_Opcode = "100011" then
 				-- lw
 				O_DEC_RegDst 	<= '0';
 				O_DEC_Jump		<= '0';
@@ -105,7 +105,7 @@ begin
 				O_DEC_MemWrite	<= '0';
 				O_DEC_ALUSrc	<= '1';
 				O_DEC_RegWrite	<= '1';
-			elsif I_DEC_Opcode = x"2b" then
+			elsif I_DEC_Opcode = "101011" then
 				-- sw
 				O_DEC_RegDst 	<= '0';
 				O_DEC_Jump		<= '0';
@@ -117,7 +117,7 @@ begin
 				O_DEC_MemWrite	<= '1';
 				O_DEC_ALUSrc	<= '1';
 				O_DEC_RegWrite	<= '0';
-			elsif I_DEC_Opcode = x"02" then
+			elsif I_DEC_Opcode = "000010" then
 				-- j
 				O_DEC_RegDst	<= '0';
 				O_DEC_Jump		<= '1';

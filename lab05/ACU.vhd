@@ -48,8 +48,8 @@ begin
 			O_ACU_CTL <= "0110";
 		elsif I_ACU_ALUOp = "10" then
 			--R-type
-			if I_ACU_Funct = "100000" then
-				--add
+			if I_ACU_Funct = "100000" or I_ACU_Funct = "100001" then
+				--add/addu
 				O_ACU_CTL <= "0010";
 			elsif I_ACU_Funct = "100010" then
 				--subtract 
