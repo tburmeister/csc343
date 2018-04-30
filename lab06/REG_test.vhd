@@ -83,9 +83,58 @@ BEGIN
    stim_proc: process
    begin
 		wait for 20 ns;
+		-- Read registers 0 and 2
 		I_REG_EN <= '1';
+		I_REG_WE <= '0';
 		I_REG_SEL_RS <= "00000";
-
+		I_REG_SEL_RT <= "00010";
+		wait for 20 ns;
+		-- Read registers 4 and 8
+		I_REG_SEL_RS <= "00100";
+		I_REG_SEL_RT <= "01000";
+		wait for 20 ns;
+		-- Read registers 9 and 10
+		I_REG_SEL_RS <= "01001";
+		I_REG_SEL_RT <= "01010";
+		wait for 20 ns;
+		-- Read registers 11 and 12
+		I_REG_SEL_RS <= "01011";
+		I_REG_SEL_RT <= "01100";
+		wait for 20 ns;
+		-- Read registers 13 and 14
+		I_REG_SEL_RS <= "01101";
+		I_REG_SEL_RT <= "01110";
+		wait for 20 ns;
+		-- Read registers 15 and 16
+		I_REG_SEL_RS <= "01111";
+		I_REG_SEL_RT <= "10000";
+		wait for 20 ns;
+		-- Read registers 17 and 18
+		I_REG_SEL_RS <= "10001";
+		I_REG_SEL_RT <= "10010";
+		wait for 20 ns;
+		-- Read regisrers 19 and 20
+		I_REG_SEL_RS <= "10011";
+		I_REG_SEL_RT <= "10100";
+		wait for 20 ns;
+		-- Read registers 21 and 22
+		I_REG_SEL_RS <= "10101";
+		I_REG_SEL_RT <= "10110";
+		wait for 20 ns;
+		-- Read registers 23 and 24
+		I_REG_SEL_RS <= "10111";
+		I_REG_SEL_RT <= "11000";
+		wait for 20 ns;
+		-- Read registers 25 and 31
+		I_REG_SEL_RS <= "11001";
+		I_REG_SEL_RT <= "11111";
+		wait for 20 ns;
+		-- Write register 25
+		I_REG_WE <= '1';
+		I_REG_DATA_RD <= x"ffffffff";
+		I_REG_SEL_RD <= "11001";
+		wait for 20 ns;
+		I_REG_SEL_RD <= "11111";
       wait;
    end process;
 
