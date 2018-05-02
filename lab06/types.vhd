@@ -29,6 +29,7 @@ package types is
 -- procedure <procedure_name> (<type_declaration> <constant_name>	: in <type_declaration>);
 --
 	type REG_ARRAY is array (0 to 31) of std_logic_vector(31 downto 0);
+	type MEM_ARRAY is array (0 to 255) of std_logic_vector(7 downto 0);
 
 end types;
 
