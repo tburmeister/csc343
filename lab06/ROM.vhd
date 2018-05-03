@@ -44,9 +44,9 @@ begin
 	begin 
 		if I_ROM_EN = '1' then
 			O_ROM_DATA(31 downto 24) <= MEM_ARRAY(to_integer(unsigned(I_ROM_ADDR)));
-			O_ROM_DATA(23 downto 16) <= MEM_ARRAY(to_integer(unsigned(I_ROM_ADDR)) + 1);
-			O_ROM_DATA(15 downto 8) <= MEM_ARRAY(to_integer(unsigned(I_ROM_ADDR)) + 2);
-			O_ROM_DATA(7 downto 0) <= MEM_ARRAY(to_integer(unsigned(I_ROM_ADDR)) + 3);
+			O_ROM_DATA(23 downto 16) <= MEM_ARRAY(to_integer(unsigned(I_ROM_ADDR + 1)));
+			O_ROM_DATA(15 downto 8) <= MEM_ARRAY(to_integer(unsigned(I_ROM_ADDR + 2)));
+			O_ROM_DATA(7 downto 0) <= MEM_ARRAY(to_integer(unsigned(I_ROM_ADDR + 3)));
 		end if;
 	end process;
 end Behavioral;
