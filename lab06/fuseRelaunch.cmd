@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "secureip" -o "/home/student/csc343/lab06/ROM_isim_beh.exe" -prj "/home/student/csc343/lab06/ROM_beh.prj" "work.ROM" 
+-intstyle "ise" -incremental -lib "secureip" -o "/home/student/csc343/lab06/RAM_isim_beh.exe" -prj "/home/student/csc343/lab06/RAM_beh.prj" "work.RAM" 
