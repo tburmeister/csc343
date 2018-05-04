@@ -134,8 +134,11 @@ BEGIN
 		I_REG_DATA_RD <= x"ffffffff";
 		I_REG_SEL_RD <= "11001";
 		wait for 20 ns;
+		-- Write register 31
 		I_REG_SEL_RD <= "11111";
-      wait;
+      wait for 20 ns; 
+		I_REG_WE <= '0';
+		wait;
    end process;
 
 END;
