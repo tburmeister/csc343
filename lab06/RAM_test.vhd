@@ -94,7 +94,7 @@ BEGIN
 			I_RAM_RE <= '0';
 			I_RAM_WE <= '1';
 			I_RAM_ADDR <= std_logic_vector(to_unsigned(i * 4, 32));
-			I_RAM_DATA <= std_logic_vector(to_unsigned(256 + i * 4, 32));
+			I_RAM_DATA <= std_logic_vector(to_unsigned(268435456 + 2**i, 32));
 			wait for 20 ns;
 			-- Read new value;
 			I_RAM_RE <= '1';
