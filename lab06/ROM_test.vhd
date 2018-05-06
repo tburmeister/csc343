@@ -38,9 +38,24 @@
      BEGIN
 
         wait for 100 ns; -- wait until global set/reset completes
-
+			
         -- Add user defined stimulus here
-
+		-- I_ROM disabled
+			I_ROM_EN <= '0';
+			I_ROM_ADDR <= x"00000000";
+			wait for 20 ns;
+		-- I_ROM enabled
+			I_ROM_EN <= '1';
+			I_ROM_ADDR <= x"00000008";
+			wait for 20 ns;
+		-- next line
+			I_ROM_ADDR <= x"00000010";
+			wait for 20 ns;
+		-- next line
+			I_ROM_ADDR <= x"00000018";
+			wait for 20 ns;
+		-- next line
+			I_ROM_ADDR <= x"00000020";
         wait; -- will wait forever
      END PROCESS tb;
   --  End Test Bench 
