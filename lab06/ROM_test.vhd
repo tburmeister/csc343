@@ -49,12 +49,15 @@
 			I_ROM_ADDR <= x"00000008";
 			wait for 20 ns;
 		-- next line
+			I_ROM_EN <= '1';
 			I_ROM_ADDR <= x"00000010";
 			wait for 20 ns;
 		-- next line
+			I_ROM_EN <= '1';
 			I_ROM_ADDR <= x"00000018";
 			wait for 20 ns;
 		-- next line
+			I_ROM_EN <= '1';
 			I_ROM_ADDR <= x"00000020";
         wait; -- will wait forever
      END PROCESS tb;
