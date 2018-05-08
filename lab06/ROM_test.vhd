@@ -37,11 +37,11 @@
      tb : PROCESS
      BEGIN
 
-        wait for 100 ns; -- wait until global set/reset completes
+        wait for 20 ns; -- wait until global set/reset completes
 			
         -- Add user defined stimulus here
 		-- I_ROM disabled
-			I_ROM_EN <= '0';
+			I_ROM_EN <= '1';
 			I_ROM_ADDR <= x"00000000";
 			wait for 20 ns;
 		-- I_ROM enabled
