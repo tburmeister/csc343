@@ -82,12 +82,12 @@ BEGIN
       wait for 20 ns;
 		I_RAM_EN <= '1';
 		I_RAM_RE <= '1';
-		-- Read all 32 words we initialized in memory
-      for i in 0 to 31 loop
+		-- Read first 8 of the 32 words we initialized in memory
+      for i in 0 to 7 loop
 			I_RAM_ADDR <= std_logic_vector(to_unsigned(i * 4, 32));
 			wait for 20 ns;
 		end loop;
-		-- Write new values to some of the registers
+		-- Write new values to first 8 words
 		I_RAM_WE <= '1';
 		for i in 0 to 7 loop
 			-- Write new values
