@@ -19,7 +19,7 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use work.Common.all
+use work.Common.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -49,9 +49,7 @@ begin
 	begin
 		if rising_edge(I_FSM_CLK) then
 			if I_FSM_EN = '1' then
-				if I_FSM_EXIT = '1' then
-					state <= STOP;
-				elsif state = INIT then
+				if state = INIT then
 					-- Start execution
 					O_FSM_IF <= '0';
 					O_FSM_ID <= '0';
@@ -73,7 +71,7 @@ begin
 					-- Execution
 					O_FSM_ID <= '0';
 					O_FSM_EX <= '1';
-					state = FSM_ME;
+					state <= FSM_ME;
 				elsif state = FSM_ME then
 					-- Memory access
 					O_FSM_EX <= '0';
@@ -83,7 +81,7 @@ begin
 					-- Write back
 					O_FSM_ME <= '0';
 					O_FSM_WB <= '1';
-					state = FSM_IF;
+					state <= FSM_IF;
 				end if;
 			else
 				-- Reset
