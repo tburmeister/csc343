@@ -43,12 +43,15 @@ end FSM;
 	
 
 architecture Behavioral of FSM is
-	signal state : fsm_state := INIT;
+	signal state : FSM_STATE := INIT;
 begin
 	process(I_FSM_CLK)
 	begin
 		if rising_edge(I_FSM_CLK) then
-			if I_FSM_EN = '1' then
+			if I_FSM_INST = x"0000000c" then
+				-- Syscall => stop
+				state <= STOP;
+			elsif I_FSM_EN = '1' then
 				if state = INIT then
 					-- Start execution
 					O_FSM_IF <= '0';
