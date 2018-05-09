@@ -29,21 +29,18 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity ShiftLeft is
-    Port ( I_ShiftLeft_EN : in  STD_LOGIC;
-           I_ShiftLeft_Val : in  STD_LOGIC_VECTOR (31 downto 0);
-           O_ShiftLeft_Val : out  STD_LOGIC_VECTOR (31 downto 0));
-end ShiftLeft;
+entity SHIFT is
+    Port ( I_SHIFT_32 : in  STD_LOGIC_VECTOR (31 downto 0);
+           O_SHIFT_32 : out  STD_LOGIC_VECTOR (31 downto 0));
+end SHIFT;
 
-architecture Behavioral of ShiftLeft is
+architecture Behavioral of SHIFT is
 
 begin
-process(I_ShiftLeft_EN, I_ShiftLeft_Val)
+process(I_SHIFT_32)
 	begin
-		if I_ShiftLeft_EN = '1' then
-			O_ShiftLeft_Val(31 downto 2) <= I_ShiftLeft_Val(29 downto 0);
-			O_ShiftLeft_Val(1 downto 0) <= "00";
-		end if;
+		O_SHIFT_32(31 downto 2) <= I_SHIFT_32(29 downto 0);
+		O_SHIFT_32(1 downto 0) <= "00";
 	end process;
 end Behavioral;
 

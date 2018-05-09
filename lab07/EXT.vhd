@@ -29,25 +29,22 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity SignExt is
-    Port ( I_SignExt_EN : in  STD_LOGIC;
-           I_SignExt_Val : in  STD_LOGIC_VECTOR (15 downto 0);
-           O_SignExt_Val : out  STD_LOGIC_VECTOR (31 downto 0));
-end SignExt;
+entity EXT is
+    Port ( I_EXT_16 : in  STD_LOGIC_VECTOR (15 downto 0);
+           O_EXT_32 : out  STD_LOGIC_VECTOR (31 downto 0));
+end EXT;
 
-architecture Behavioral of SignExt is
+architecture Behavioral of EXT is
 
 begin
-	process(I_SignExt_EN, I_SignExt_Val)
+	process(I_EXT_16)
 	begin
-		if I_SignExt_EN = '1' then
-			if I_SignExt_Val(15) = '0' then
-				O_SignExt_Val(31 downto 16) <= x"0000";
-			else
-				O_SignExt_Val(31 downto 16) <= x"ffff";
-			end if;
-			O_SignExt_Val(15 downto 0) <= I_SignExt_Val;
+		if I_EXT_16(15) = '0' then
+			O_EXT_32(31 downto 16) <= x"0000";
+		else
+			O_EXT_32(31 downto 16) <= x"ffff";
 		end if;
+		O_EXT_32(15 downto 0) <= I_EXT_16;
 	end process;
 end Behavioral;
 

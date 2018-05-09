@@ -33,7 +33,7 @@ use work.Common.all
 entity FSM is
     Port ( I_FSM_EN : in  STD_LOGIC;
            I_FSM_CLK : in  STD_LOGIC;
-			  I_FSM_EXIT : in  STD_LOGIC;
+			  I_FSM_INST : in  STD_LOGIC_VECTOR(31 downto 0);
            O_FSM_IF : out  STD_LOGIC;
            O_FSM_ID : out  STD_LOGIC;
            O_FSM_EX : out  STD_LOGIC;
