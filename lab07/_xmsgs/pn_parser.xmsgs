@@ -8,19 +8,10 @@
 <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/student/Desktop/lab_5/lab05/lab07/ALU.vhd&quot; into library work</arg>
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/student/Desktop/lab_5/lab05/lab07/Common.vhd&quot; into library work</arg>
 </msg>
 
 <msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/student/Desktop/lab_5/lab05/lab07/FSM.vhd&quot; into library work</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/student/Desktop/lab_5/lab05/lab07/FSM.vhd</arg>&quot; Line <arg fmt="%d" index="2">33</arg>. <arg fmt="%s" index="3">Syntax error near &quot;entity&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/student/Desktop/lab_5/lab05/lab07/FSM.vhd</arg>&quot; Line <arg fmt="%d" index="2">76</arg>. <arg fmt="%s" index="3">Syntax error near &quot;=&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/student/Desktop/lab_5/lab05/lab07/FSM.vhd</arg>&quot; Line <arg fmt="%d" index="2">86</arg>. <arg fmt="%s" index="3">Syntax error near &quot;=&quot;.</arg>
 </msg>
 
 </messages>

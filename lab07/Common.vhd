@@ -28,7 +28,7 @@ package Common is
 -- function <function_name>  (signal <signal_name> : in <type_declaration>) return <type_declaration>;
 -- procedure <procedure_name> (<type_declaration> <constant_name>	: in <type_declaration>);
 --
-	type fsm_state is (INIT, FSM_IF, FSM_ID, FSM_EX, FSM_ME, FSM_WB, STOP);
+	type FSM_STATE is (INIT, FSM_IF, FSM_ID, FSM_EX, FSM_ME, FSM_WB, STOP);
 	type REG_ARRAY is array (0 to 31) of std_logic_vector(31 downto 0);
 	type MEM_ARRAY is array (0 to 255) of std_logic_vector(7 downto 0);
 end Common;
