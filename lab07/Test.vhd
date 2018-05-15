@@ -29,6 +29,7 @@ ARCHITECTURE behavioral OF CCSiMP32_CCSiMP32_sch_tb IS
    SIGNAL I_EN	:	STD_LOGIC;
    SIGNAL I_CLK	:	STD_LOGIC;
 
+	constant I_CLK_period : time := 10 ns;
 BEGIN
 
    UUT: CCSiMP32 PORT MAP(
@@ -36,11 +37,20 @@ BEGIN
 		I_CLK => I_CLK
    );
 
--- *** Test Bench - User Defined Section ***
+   -- Clock process definitions
+   I_CLK_process :process
+   begin
+		I_CLK <= '0';
+		wait for I_CLK_period/2;
+		I_CLK <= '1';
+		wait for I_CLK_period/2;
+   end process;
+
    tb : PROCESS
    BEGIN
+		wait for I_CLK_period*10;
+		I_EN <= '1';
       WAIT; -- will wait forever
    END PROCESS;
--- *** End Test Bench - User Defined Section ***
 
 END;

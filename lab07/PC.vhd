@@ -19,6 +19,7 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -36,13 +37,14 @@ entity PC is
 end PC;
 
 architecture Behavioral of PC is
-
+	signal PC: unsigned(31 downto 0) := x"00000000";
 begin
 	process(I_PC_UPDATE, I_PC)
 	begin
 		if I_PC_UPDATE = '1' then
-			O_PC <= I_PC;
+			PC <= unsigned(I_PC);
 		end if;
+		O_PC <= STD_LOGIC_VECTOR(PC);
 	end process;
 end Behavioral;
 
