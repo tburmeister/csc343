@@ -42,31 +42,7 @@ entity RAM is
 end RAM;
 
 architecture Behavioral of RAM is
-	impure function init_ram(Filename : in string) return MEM_ARRAY is
-		constant LINE_NUM : integer := 256;
-		file fp: text;
-		variable mem_array : MEM_ARRAY := (others => x"00");
-		variable line_cache : line;
-		variable word_cache : bit_vector (31 downto 0) := x"00000000";
-	begin
-		file_open(fp, FileName, read_mode);
-		for i in 0 to LINE_NUM loop
-			if endfile(fp) then
-				exit;
-			else 
-				readline(fp, line_cache);
-				read(line_cache, word_cache);
-				mem_array(4 * i) := to_stdlogicvector(word_cache(31 downto 24));
-				mem_array(4 * i + 1) := to_stdlogicvector(word_cache(23 downto 16));
-				mem_array(4 * i + 2) := to_stdlogicvector(word_cache(15 downto 8));
-				mem_array(4 * i + 3) := to_stdlogicvector(word_cache(7 downto 0));
-			end if;
-		end loop;
-		file_close(fp);
-		return mem_array;
-	end function;
-
-	signal MEM_ARRAY : MEM_ARRAY := init_ram("RAM_init.txt");
+	signal MEM_ARRAY : MEM_ARRAY := (others => x"00");
 begin
 	process(I_RAM_EN, I_RAM_RE, I_RAM_WE, I_RAM_ADDR)
 	begin

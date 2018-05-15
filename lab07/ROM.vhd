@@ -64,7 +64,7 @@ architecture Behavioral of ROM is
 		return mem_array;
 	end function;
 	
-	signal MEM_ARRAY : MEM_ARRAY := init_rom("ROM_init.txt");	
+	signal MEM_ARRAY : MEM_ARRAY := init_rom("Fibonacci.bin");	
 begin
 	process(I_ROM_EN, I_ROM_ADDR)
 	begin 
