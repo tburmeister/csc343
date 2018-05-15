@@ -7,45 +7,17 @@
     </attr>
     <netlist>
         <signal name="XLXN_2" />
-        <signal name="XLXN_14" />
         <signal name="XLXN_15" />
-        <signal name="XLXN_16" />
-        <signal name="XLXN_17" />
-        <signal name="XLXN_21" />
         <signal name="XLXN_23" />
         <signal name="XLXN_24" />
-        <signal name="XLXN_28(31:0)" />
-        <signal name="XLXN_31" />
-        <signal name="XLXN_32(31:0)" />
-        <signal name="XLXN_35" />
-        <signal name="XLXN_38(5:0)" />
-        <signal name="XLXN_43(4:0)" />
-        <signal name="XLXN_44(4:0)" />
-        <signal name="XLXN_45(4:0)" />
-        <signal name="XLXN_47" />
-        <signal name="XLXN_48" />
-        <signal name="XLXN_58(4:0)" />
-        <signal name="XLXN_59(4:0)" />
-        <signal name="XLXN_60(4:0)" />
         <signal name="XLXN_62(1:0)" />
-        <signal name="XLXN_64" />
-        <signal name="XLXN_73" />
-        <signal name="XLXN_75(4:0)" />
         <signal name="XLXN_76" />
-        <signal name="XLXN_80(31:0)" />
         <signal name="XLXN_90(31:0)" />
-        <signal name="XLXN_91" />
         <signal name="XLXN_93" />
         <signal name="XLXN_94" />
-        <signal name="XLXN_95(1:0)" />
         <signal name="XLXN_101" />
-        <signal name="XLXN_102" />
-        <signal name="XLXN_103(31:0)" />
-        <signal name="XLXN_105" />
-        <signal name="XLXN_106(31:0)" />
-        <signal name="XLXN_109" />
         <signal name="XLXN_111" />
-        <signal name="XLXN_113(31:0)" />
+        <signal name="Instruction(31:0)" />
         <blockdef name="ACU">
             <timestamp>2018-5-13T19:25:29</timestamp>
             <rect width="400" x="64" y="-128" height="128" />
@@ -207,7 +179,7 @@
         <block symbolname="ROM" name="XLXI_6">
             <blockpin signalname="XLXN_2" name="I_ROM_EN" />
             <blockpin signalname="XLXN_90(31:0)" name="I_ROM_ADDR(31:0)" />
-            <blockpin signalname="XLXN_113(31:0)" name="O_ROM_DATA(31:0)" />
+            <blockpin signalname="Instruction(31:0)" name="O_ROM_DATA(31:0)" />
         </block>
         <block symbolname="or2" name="XLXI_7">
             <blockpin signalname="XLXN_23" name="I0" />
@@ -317,7 +289,7 @@
             <wire x2="1744" y1="1456" y2="1456" x1="1728" />
             <wire x2="1744" y1="1456" y2="1920" x1="1744" />
         </branch>
-        <branch name="XLXN_113(31:0)">
+        <branch name="Instruction(31:0)">
             <wire x2="656" y1="2368" y2="2368" x1="640" />
             <wire x2="656" y1="2368" y2="2512" x1="656" />
             <wire x2="656" y1="2512" y2="2544" x1="656" />
