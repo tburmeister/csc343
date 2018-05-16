@@ -8,7 +8,6 @@
     <attr value="Never" name="RenameBusIO" />
     <netlist>
         <signal name="XLXN_15" />
-        <signal name="XLXN_23" />
         <signal name="XLXN_24" />
         <signal name="XLXN_62(1:0)" />
         <signal name="XLXN_76" />
@@ -21,9 +20,7 @@
         <signal name="I_EN" />
         <signal name="I_CLK" />
         <signal name="XLXN_128(31:0)" />
-        <signal name="XLXN_129(31:0)" />
         <signal name="XLXN_132" />
-        <signal name="XLXN_134(31:0)" />
         <signal name="XLXN_136(31:0)" />
         <signal name="Instruction(15:0)" />
         <signal name="XLXN_138(31:0)" />
@@ -53,15 +50,11 @@
         <signal name="XLXN_204" />
         <signal name="Instruction(25:21)" />
         <signal name="XLXN_211" />
-        <signal name="XLXN_213" />
         <signal name="XLXN_215" />
         <signal name="XLXN_216" />
         <signal name="XLXN_222" />
-        <signal name="XLXN_223(31:0)" />
         <signal name="XLXN_224(31:0)" />
-        <signal name="XLXN_225(31:0)" />
         <signal name="XLXN_226(31:0)" />
-        <signal name="XLXN_227" />
         <port polarity="Input" name="I_EN" />
         <port polarity="Input" name="I_CLK" />
         <blockdef name="ACU">
@@ -104,19 +97,6 @@
             <line x2="464" y1="-160" y2="-160" x1="400" />
             <line x2="464" y1="-96" y2="-96" x1="400" />
             <line x2="464" y1="-32" y2="-32" x1="400" />
-        </blockdef>
-        <blockdef name="RAM">
-            <timestamp>2018-5-13T19:26:12</timestamp>
-            <rect width="432" x="64" y="-320" height="320" />
-            <line x2="0" y1="-288" y2="-288" x1="64" />
-            <line x2="0" y1="-224" y2="-224" x1="64" />
-            <line x2="0" y1="-160" y2="-160" x1="64" />
-            <rect width="64" x="0" y="-108" height="24" />
-            <line x2="0" y1="-96" y2="-96" x1="64" />
-            <rect width="64" x="0" y="-44" height="24" />
-            <line x2="0" y1="-32" y2="-32" x1="64" />
-            <rect width="64" x="496" y="-300" height="24" />
-            <line x2="560" y1="-288" y2="-288" x1="496" />
         </blockdef>
         <blockdef name="REG">
             <timestamp>2018-5-16T2:17:55</timestamp>
@@ -261,6 +241,19 @@
             <line x2="0" y1="-32" y2="-32" x1="64" />
             <rect width="64" x="464" y="-44" height="24" />
             <line x2="528" y1="-32" y2="-32" x1="464" />
+        </blockdef>
+        <blockdef name="RAM">
+            <timestamp>2018-5-16T2:26:50</timestamp>
+            <rect width="432" x="64" y="-320" height="320" />
+            <line x2="0" y1="-288" y2="-288" x1="64" />
+            <line x2="0" y1="-224" y2="-224" x1="64" />
+            <line x2="0" y1="-160" y2="-160" x1="64" />
+            <rect width="64" x="0" y="-108" height="24" />
+            <line x2="0" y1="-96" y2="-96" x1="64" />
+            <rect width="64" x="0" y="-44" height="24" />
+            <line x2="0" y1="-32" y2="-32" x1="64" />
+            <rect width="64" x="496" y="-300" height="24" />
+            <line x2="560" y1="-288" y2="-288" x1="496" />
         </blockdef>
         <block symbolname="ACU" name="XLXI_1">
             <blockpin signalname="XLXN_62(1:0)" name="I_ACU_ALUOp(1:0)" />
@@ -718,8 +711,6 @@
             <wire x2="1984" y1="160" y2="160" x1="1632" />
             <wire x2="1984" y1="160" y2="2720" x1="1984" />
         </branch>
-        <instance x="3792" y="2352" name="XLXI_28" orien="R0">
-        </instance>
         <branch name="XLXN_224(31:0)">
             <wire x2="1888" y1="2384" y2="2384" x1="1872" />
             <wire x2="2848" y1="2384" y2="2384" x1="1888" />
@@ -729,9 +720,6 @@
             <wire x2="1968" y1="1872" y2="2368" x1="1968" />
             <wire x2="3792" y1="2320" y2="2320" x1="2848" />
             <wire x2="2848" y1="2320" y2="2384" x1="2848" />
-        </branch>
-        <branch name="XLXN_129(31:0)">
-            <wire x2="4384" y1="1664" y2="1664" x1="4368" />
         </branch>
         <branch name="XLXN_226(31:0)">
             <wire x2="4384" y1="2592" y2="2592" x1="3296" />
@@ -772,5 +760,7 @@
             <wire x2="3792" y1="2064" y2="2064" x1="2096" />
             <wire x2="1776" y1="352" y2="352" x1="1632" />
         </branch>
+        <instance x="3792" y="2352" name="XLXI_28" orien="R0">
+        </instance>
     </sheet>
 </drawing>

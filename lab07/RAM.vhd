@@ -48,16 +48,16 @@ begin
 	begin
 		if I_RAM_EN = '1' then
 			if I_RAM_WE = '1' then
-				MEM_ARRAY(to_integer(unsigned(I_RAM_ADDR)) + 8192) <= I_RAM_DATA(31 downto 24);
-				MEM_ARRAY(to_integer(unsigned(I_RAM_ADDR)) + 8192 + 1) <= I_RAM_DATA(23 downto 16);
-				MEM_ARRAY(to_integer(unsigned(I_RAM_ADDR)) + 8192 + 2) <= I_RAM_DATA(15 downto 8);
-				MEM_ARRAY(to_integer(unsigned(I_RAM_ADDR)) + 8192 + 3) <= I_RAM_DATA(7 downto 0);
+				MEM_ARRAY(to_integer(unsigned(I_RAM_ADDR)) - 8192) <= I_RAM_DATA(31 downto 24);
+				MEM_ARRAY(to_integer(unsigned(I_RAM_ADDR)) - 8192 + 1) <= I_RAM_DATA(23 downto 16);
+				MEM_ARRAY(to_integer(unsigned(I_RAM_ADDR)) - 8192 + 2) <= I_RAM_DATA(15 downto 8);
+				MEM_ARRAY(to_integer(unsigned(I_RAM_ADDR)) - 8192 + 3) <= I_RAM_DATA(7 downto 0);
 			end if;
 			if I_RAM_RE = '1' then
-				O_RAM_DATA(31 downto 24) <= MEM_ARRAY(to_integer(unsigned(I_RAM_ADDR)) + 8192);
-				O_RAM_DATA(23 downto 16) <= MEM_ARRAY(to_integer(unsigned(I_RAM_ADDR)) + 8192 + 1);
-				O_RAM_DATA(15 downto 8) <= MEM_ARRAY(to_integer(unsigned(I_RAM_ADDR)) + 8192 + 2);
-				O_RAM_DATA(7 downto 0) <= MEM_ARRAY(to_integer(unsigned(I_RAM_ADDR)) + 8192 + 3);
+				O_RAM_DATA(31 downto 24) <= MEM_ARRAY(to_integer(unsigned(I_RAM_ADDR)) - 8192);
+				O_RAM_DATA(23 downto 16) <= MEM_ARRAY(to_integer(unsigned(I_RAM_ADDR)) - 8192 + 1);
+				O_RAM_DATA(15 downto 8) <= MEM_ARRAY(to_integer(unsigned(I_RAM_ADDR)) - 8192 + 2);
+				O_RAM_DATA(7 downto 0) <= MEM_ARRAY(to_integer(unsigned(I_RAM_ADDR)) - 8192 + 3);
 			end if;
 		end if;
 	end process;
