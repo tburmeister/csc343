@@ -42,34 +42,8 @@ entity REG is
            O_REG_DATA_B : out  STD_LOGIC_VECTOR (31 downto 0));
 end REG;
 
-architecture Behavioral of REG is
-	function INIT_REG return REG_ARRAY is
-		variable REG_ARRAY : REG_ARRAY := (others => x"00000000");
-	begin
-		REG_ARRAY(2)  := x"02020202";
-		REG_ARRAY(4)  := x"04040404";
-		REG_ARRAY(8)  := x"08080808";
-		REG_ARRAY(9)  := x"09090909";
-		REG_ARRAY(10) := x"0A0A0A0A";
-		REG_ARRAY(11) := x"0B0B0B0B";
-		REG_ARRAY(12) := x"0C0C0C0C";
-		REG_ARRAY(13) := x"0D0D0D0D";
-		REG_ARRAY(14) := x"0E0E0E0E";
-		REG_ARRAY(15) := x"0F0F0F0F";
-		REG_ARRAY(16) := x"10101010";
-		REG_ARRAY(17) := x"11111111";
-		REG_ARRAY(18) := x"12121212";
-		REG_ARRAY(19) := x"13131313";
-		REG_ARRAY(20) := x"14141414";
-		REG_ARRAY(21) := x"15151515";
-		REG_ARRAY(22) := x"16161616";
-		REG_ARRAY(23) := x"17171717";
-		REG_ARRAY(24) := x"18181818";
-		REG_ARRAY(25) := x"19191919";
-		return REG_ARRAY;
-	end function INIT_REG;
-	
-	signal REG_ARRAY : REG_ARRAY := INIT_REG;
+architecture Behavioral of REG is	
+	signal REG_ARRAY : REG_ARRAY := (others => x"00000000");
 begin
 	process(I_REG_EN,I_REG_WE,I_REG_SEL_RS,I_REG_SEL_RT,I_REG_SEL_RD,I_REG_DATA_RD)
 	begin

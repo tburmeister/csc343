@@ -41,10 +41,10 @@ begin
 	process(I_ACU_ALUOp,I_ACU_Funct)
 		begin 
 		if I_ACU_ALUOp = "00" then
-		-- LW or SW
+			-- LW or SW
 			O_ACU_CTL <= "0010";
 		elsif I_ACU_ALUOp = "01" then
-		--beq
+			--beq
 			O_ACU_CTL <= "0110";
 		elsif I_ACU_ALUOp = "10" then
 			--R-type

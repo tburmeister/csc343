@@ -72,7 +72,7 @@ begin
 				O_DEC_Bne		<= '0';
 				O_DEC_MemRead	<= '0';
 				O_DEC_MemtoReg	<= '0';
-				O_DEC_ALUOp		<= "10";
+				O_DEC_ALUOp		<= "00";
 				O_DEC_MemWrite	<= '0';
 				O_DEC_ALUSrc	<= '1';
 				O_DEC_RegWrite	<= '1';
