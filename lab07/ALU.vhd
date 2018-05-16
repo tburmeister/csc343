@@ -56,9 +56,9 @@ begin
 			end if;
 			-- set alu_zero
 			if ALU_Result = 0 then
-				O_ALU_Zero <= '0';
-			else 
 				O_ALU_Zero <= '1';
+			else 
+				O_ALU_Zero <= '0';
 			end if;
 			O_ALU_Out <= STD_LOGIC_VECTOR(to_unsigned(ALU_Result, 32));
 		end if;
