@@ -156,7 +156,7 @@
             <line x2="432" y1="-96" y2="-96" x1="368" />
         </blockdef>
         <blockdef name="ALU">
-            <timestamp>2018-5-14T23:57:35</timestamp>
+            <timestamp>2018-5-16T17:8:38</timestamp>
             <rect width="368" x="64" y="-256" height="256" />
             <line x2="0" y1="-224" y2="-224" x1="64" />
             <rect width="64" x="0" y="-172" height="24" />
@@ -248,7 +248,7 @@
             <line x2="560" y1="-288" y2="-288" x1="496" />
         </blockdef>
         <blockdef name="JUMP">
-            <timestamp>2018-5-17T2:4:54</timestamp>
+            <timestamp>2018-5-17T2:27:18</timestamp>
             <rect width="400" x="64" y="-128" height="128" />
             <rect width="64" x="0" y="-108" height="24" />
             <line x2="0" y1="-96" y2="-96" x1="64" />
@@ -400,8 +400,8 @@
         </block>
         <block symbolname="JUMP" name="XLXI_29">
             <blockpin signalname="Instruction(25:0)" name="I_JUMP_26(25:0)" />
-            <blockpin signalname="XLXN_150(31:0)" name="I_JUMP_PC(32:0)" />
-            <blockpin signalname="XLXN_229(31:0)" name="O_JUMP_32(32:0)" />
+            <blockpin signalname="XLXN_150(31:0)" name="I_JUMP_PC(31:0)" />
+            <blockpin signalname="XLXN_229(31:0)" name="O_JUMP_32(31:0)" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="5440" height="3520">

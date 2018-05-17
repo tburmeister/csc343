@@ -31,8 +31,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity JUMP is
     Port ( I_JUMP_26 : in  STD_LOGIC_VECTOR (25 downto 0);
-           I_JUMP_PC : in  STD_LOGIC_VECTOR (32 downto 0);
-           O_JUMP_32 : out  STD_LOGIC_VECTOR (32 downto 0));
+           I_JUMP_PC : in  STD_LOGIC_VECTOR (31 downto 0);
+           O_JUMP_32 : out  STD_LOGIC_VECTOR (31 downto 0));
 end JUMP;
 
 architecture Behavioral of JUMP is
